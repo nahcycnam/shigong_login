@@ -20,14 +20,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install Nuitka
           pip install -r requirements.txt
-          # 确保 lxml 已安装
-          pip install lxml beautifulsoup4 soupsieve
-          # 验证安装
-          python -c "import lxml; print(lxml.__file__)"
 
       - name: Build
         run: |
-          python -m nuitka --standalone --windows-console-mode=disable --windows-icon-from-ico=logo.ico --jobs=2 --assume-yes-for-downloads --enable-plugin=pyqt6 --include-package=lxml --include-package=bs4 --include-package=soupsieve --include-package-data=lxml --include-package-data=bs4 --include-package-data=soupsieve lims_duty.py
+          python -m nuitka --standalone --windows-console-mode=disable --windows-icon-from-ico=logo.ico --jobs=2 --assume-yes-for-downloads --enable-plugin=pyqt6 lims_duty.py
 
       - name: Upload
         uses: actions/upload-artifact@v4
