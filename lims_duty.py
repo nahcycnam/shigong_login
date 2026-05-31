@@ -123,7 +123,7 @@ def download_night_construction_report() -> bytes | None:
 		session.post(
 			url,
 			headers=headers,
-			data="line=LINE5&station=508&rq=2026-05-30&b1=%E6%96%BD%E5%B7%A5%E9%A2%84%E6%83%B3",
+			data=f"line=LINE5&station=508&rq={datetime.now().strftime('%Y-%m-%d')}&b1=%E6%96%BD%E5%B7%A5%E9%A2%84%E6%83%B3",
 			timeout=10,
 		)
 
